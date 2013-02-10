@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sample API Calls</title>
+</head>
+<body>
+    API Calls: <br />
+    <ul>
+        <li><a href="javascript: void(0)" data-api="http://localhost:39659/api/Sample/GiveMeData">GiveMeData</a> - No Accept headers specified</li>
+        <li><a href="javascript: void(0)" data-api="http://localhost:39659/api/Sample/GiveMeDataInJson">GiveMeDataInJson</a> - No Accept headers specified</li>
+        <li><a href="javascript: void(0)" data-api="http://localhost:39659/api/Sample/GiveMeDataInXml">GiveMeDataInXml</a> - No Accept headers specified</li>
+    </ul>
+    <b>Output:</b>
+    <pre id="output"></pre>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("a[data-api]").click(function () {
+                var url = $(this).data("api");
+                $.ajax({
+                    url: url,
+                    headers: { 
+                        Accept: "application/NobodyMatchesThisWTH"
+                    },
+                    type: "GET",
+                    dataType: "text" ,
+                    success: function (data, status, jqXHR) {
+                        $("#output").text("Status: " + status + " \n" +
+                                          "Content: \n" + data);
+                    },
+                    error: function (jqXHR, status, errorThrown) {
+                        $("#output").text("Status: " + status + "\n" +
+                                          "Error: " + errorThrown + "\n" +
+                                          "Content: \n" + jqXHR.responseText.replace(/\\r\\n/g,'\n'));
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
