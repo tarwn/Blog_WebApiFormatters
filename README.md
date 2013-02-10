@@ -1,7 +1,7 @@
 Blog WebApiFormatters
 =====================
 
-Blog Post: to be published
+Blog Post: [ASP.Net WebAPI - Controlling Response Formats](http://blogs.lessthandot.com/index.php/WebDev/ServerProgramming/ASPNET/asp-net-webapi-controlling-response)
 
 This code is a sample project to show two methods for changing the formatter used for 
 output from ASP.net MVC4 Web API methods. A sample Index.html page is available with
